@@ -1,1 +1,1 @@
-# aplicacao-react
+# aplicação utilizando react
