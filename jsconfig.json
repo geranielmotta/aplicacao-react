@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "module": "commonjs",
+    "target": "es6",
+    "paths": {
+      "*": ["./*"],
+      "@Components/*": ["./components/*"]
+    },
+    "sourceMap": true,
+    "jsx": "react"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "test-js/**/*"]
+}

@@ -1,0 +1,8 @@
+// Override default variables before the import
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* body {
+  color: #fff !important;
+  background-color: #efefef;
+  font-family: 'Montserrat', sans-serif;
+}
