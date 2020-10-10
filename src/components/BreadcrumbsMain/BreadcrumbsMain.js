@@ -13,10 +13,9 @@ const BreadcrumbsMain = () => {
   const classes = useStyles()
 
   const breadcrumbNameMap = {
-    '/enterprises': 'Empreendimento',
-    '/enterprises/create-product': 'Cadastro',
-    '/enterprises/list-product': 'Consulta',
-    '/enterprises/list-brokers': 'Corretores',
+    '/create-project': 'Cadastro',
+    '/list-project': 'Projetos',
+    '/list-user': 'Usuários',
   }
 
   const LinkRouter = props => <Link {...props} component={RouterLink} />

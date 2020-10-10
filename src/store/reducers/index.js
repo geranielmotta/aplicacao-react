@@ -9,7 +9,7 @@ import users from './users'
 export default history =>
   persistCombineReducers(
     {
-      key: 'aplicacao-react',
+      key: 'root',
       storage,
       blacklist: ['loading', 'communication'],
     },

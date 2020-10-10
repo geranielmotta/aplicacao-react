@@ -1,15 +1,15 @@
 import {
-  takeLatest, takeEvery, put, call, select
+  takeLatest, put, call, select
 } from 'redux-saga/effects'
-import { Creators as ProjectActions, Types } from 'store/reducers/project'
+import { Creators as ProjectActions } from 'store/reducers/projects'
 import { Creators as LoadingActions } from 'store/reducers/loading'
 import { Creators as CommunicationActions } from 'store/reducers/communication'
 import navigate from 'store/reducers/router'
-import { getAllProject, addNewProject } from '../api/project/project'
+import { getAllProjects, getOneProject, addNewProject, editProject } from '../server/project/project'
 
 function* doGetAllProject() {
   try {
-    const { data } = yield call(getAllProject)
+    const { data } = yield call(getAllProjects)
 
     yield put(ProjectActions.getAllProjects(data.data))
   } catch (error) {
@@ -27,7 +27,6 @@ function* doCreateproject() {
 
   try {
     const params = {
-      token,
       user: project.user,
       name: project.name,
       start: project.start,
@@ -59,8 +58,8 @@ function* doCreateproject() {
 }
 
 function* SagaProject() {
-  yield takeLatest(Types.GET_PROJECTS, doGetAllProject)
-  yield takeLatest(Types.ADD_PROJECT, doCreateproject)
+  yield takeLatest('GET_ALL_PROJECTS', doGetAllProject)
+  yield takeLatest('ADD_PROJECT', doCreateproject)
 }
 
 export default SagaProject

@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateProjectContainer from 'container/CreateProject'
+import CreateProjectContainer from 'container/AddProject'
 
 const CreateProject = props => <CreateProjectContainer { ...props } />
 

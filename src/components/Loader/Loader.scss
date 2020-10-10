@@ -1,0 +1,24 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(152, 154, 158, 0.6) !important;
+}
+
+.spinnerStyle{
+  align-self: center;
+}
+
+.spinner-border{
+  animation: spinner-border 0.45s linear infinite;
+  border-right-color: rgb(52, 52, 229);
+  height: 3.5em;
+  width: 3.5em;
+}

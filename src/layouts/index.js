@@ -1,27 +1,15 @@
 import React, { Suspense } from 'react'
 import { withRouter } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { Creators as communicationActions } from 'store/reducers/communication'
-import Loader from 'components/Loader'
-import ToastAlert from 'components/ToastAlert'
+import { useSelector } from 'react-redux'
 import GuestLayout from './GuestLayout'
-import AuthenticatedLayout from './AuthenticatedLayout'
+import {Communication, Loader} from 'components'
 
 const CommomLayoutComponents = () => {
-  const dispatch = useDispatch()
+
   const loading = useSelector(state => state.loading)
-  const communication = useSelector(state => state.communication)
   return (
     <>
-      {communication.type && (
-        <ToastAlert
-          callback={() => dispatch(communicationActions.removeCommunication())}
-          open={communication.open}
-          type={communication.type}
-          message={communication.message}
-          title={communication.title}
-        />
-      )}
+      <Communication />
       {loading && <Loader />}
     </>
   )
@@ -37,14 +25,8 @@ const withLayout = nextLayout => PagesRouter => {
   let LayoutComponent
 
   switch (nextLayout) {
-    case 'guest':
-      LayoutComponent = GuestLayout
-      break
-    case 'authenticated':
-      LayoutComponent = AuthenticatedLayout
-      break
     default:
-      LayoutComponent = () => null
+      LayoutComponent = GuestLayout
       break
   }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchProjectsContainer from 'container/SearchProjects'
+import SearchProjectsContainer from 'container/SearchProjects/SearchProjects'
 
 const SearchProjects = props => <SearchProjectsContainer {...props} />
 

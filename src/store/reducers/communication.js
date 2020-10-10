@@ -1,43 +1,28 @@
 import { createReducer, createActions } from 'reduxsauce'
 
 const initialState = {
-  open: false,
-  type: '',
-  title: '',
-  message: '',
+  status: '',
+  description: ''
 }
 
-export const addCommunication = (state = initialState, { communication }) => {
-  const {
-    message,
-    title,
-    type,
-  } = communication
-
-  return {
-    ...state,
-    open: true,
-    type: type,
-    title: title,
-    message: message,
-  }
-}
+export const addCommunication = (state = initialState, { communication }) => ({
+  ...state,
+  status: communication.status,
+  description: communication.description
+})
 
 export const removeCommunication = () => ({
-  open: false,
-  type: '',
-  title: '',
-  message: '',
+  state: initialState
 })
 
 export const { Types, Creators } = createActions({
   addCommunication: ['communication'],
-  removeCommunication: null,
+  removeCommunication: null
 })
 
 export const communication = {
   [Types.ADD_COMMUNICATION]: addCommunication,
-  [Types.REMOVE_COMMUNICATION]: removeCommunication,
+  [Types.REMOVE_COMMUNICATION]: removeCommunication
 }
 
 export default createReducer(initialState, communication)

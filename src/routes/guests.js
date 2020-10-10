@@ -2,19 +2,11 @@ import React, { lazy } from 'react'
 import { ListProduct, Product, PersonSearch } from '../icons'
 import colors from 'styles/colors'
 
-const CreateProjects = lazy(() => import('views/authenticated/CreateProjects'))
-const SearchProjects = lazy(() => import('views/authenticated/SearchProjects'))
-const ListUsers = lazy(() => import('views/authenticated/ListUsers/ListUsers'))
+const CreateProjects = lazy(() => import('views/guest/CreateProject'))
+const SearchProjects = lazy(() => import('views/guest/SearchProjects'))
+const ListUsers = lazy(() => import('views/guest/ListUsers/ListUsers'))
 
 const routes = {
-  home: {
-    path: '/home',
-    Component: Home,
-    exact: true,
-    menu: true,
-    name: 'Home',
-    Icon: props => <House size={20} color={colors.white} />,
-  },
   createProjects: {
     path: '/create-projects',
     Component: CreateProjects,

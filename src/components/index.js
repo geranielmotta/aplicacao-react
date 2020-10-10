@@ -4,6 +4,8 @@ import RouteWithLayout from './RouteWithLayout/RouteWithLayout'
 import RouterSwitch from './RouterSwitch/RouterSwitch'
 import InputField from './InputField/InputField'
 import BreadcrumbsMain from './BreadcrumbsMain/BreadcrumbsMain'
+import Communication from './Communication/Communication'
+import Loader from './Loader/Loader'
 
 export {
   StatusBullet,
@@ -11,4 +13,6 @@ export {
   RouterSwitch,
   InputField,
   BreadcrumbsMain,
+  Communication,
+  Loader,
 }

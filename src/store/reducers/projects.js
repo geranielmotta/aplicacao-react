@@ -10,7 +10,7 @@ export const getAllProjectsSuccess = (state = initialState, { data }) => ({
   listProjects: data,
 })
 
-export const setOneProjectsuccess = (state = initialState, { projects }) => ({
+export const setOneProjectSuccess = (state = initialState, { projects }) => ({
   ...state,
   projects: projects,
 })
@@ -35,16 +35,16 @@ export const { Types, Creators } = createActions({
   getAllProjectsSuccess: ['data'],
   addProjects: ['projects'],
   getOneProjects: ['id'],
-  setOneProjectsuccess: ['project'],
+  setOneProjectSuccess: ['project'],
   editOneProject: ['project'],
   projectClean: [''],
 })
 
-export const product = {
+export const project = {
   [Types.GET_ALL_PROJECTS_SUCCESS]: getAllProjectsSuccess,
   [Types.EDIT_ONE_PROJECT]: editOneProject,
-  [Types.SET_ONE_PROJECT_SUCCESS]: setOneProjectsuccess,
+  [Types.SET_ONE_PROJECT_SUCCESS]: setOneProjectSuccess,
   [Types.PROJECT_CLEAN]: projectClean,
 }
 
-export default createReducer(initialState, product)
+export default createReducer(initialState, project)
