@@ -1,6 +1,6 @@
-import CreateProduct from './CreateProduct'
-import Dashboard from './Dashboard'
-import SearchProduct from './SearchProduct'
-import ListBrokers from './ListBrokers'
+import AddProject from './AddProject'
+import AddUser from './AddUser'
+import ListProjects from './ListProjects/ListProjects'
+import ListUsers from './ListUsers'
 
-export { CreateProduct, Dashboard, SearchProduct, ListBrokers }
+export { AddProject, AddUser, ListProjects, ListUsers }

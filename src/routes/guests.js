@@ -3,12 +3,13 @@ import { ListProduct, Product, PersonSearch } from '../icons'
 import colors from 'styles/colors'
 
 const CreateProjects = lazy(() => import('views/guest/CreateProject'))
-const SearchProjects = lazy(() => import('views/guest/SearchProjects'))
-const ListUsers = lazy(() => import('views/guest/ListUsers/ListUsers'))
+const CreateUser = lazy(() => import('views/guest/CreateUser/CreateUser'))
+const ListProjects = lazy(() => import('views/guest/ListProjects'))
+const ListUsers = lazy(() => import('views/guest/ListUsers'))
 
 const routes = {
   createProjects: {
-    path: '/create-projects',
+    path: '/create-project',
     Component: CreateProjects,
     exact: true,
     menu: false,
@@ -18,7 +19,7 @@ const routes = {
   },
   listProjects: {
     path: '/list-projects',
-    Component: SearchProjects,
+    Component: ListProjects,
     exact: true,
     menu: true,
     menuExact: false,
@@ -30,6 +31,15 @@ const routes = {
     Component: ListUsers,
     exact: true,
     menu: true,
+    menuExact: false,
+    name: 'Usuários',
+    Icon: props => <PersonSearch size={20} color={colors.white} />,
+  },
+  createUsers: {
+    path: '/create-user',
+    Component: CreateUser,
+    exact: true,
+    menu: false,
     menuExact: false,
     name: 'Usuários',
     Icon: props => <PersonSearch size={20} color={colors.white} />,

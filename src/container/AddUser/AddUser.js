@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 
-export default function AddProject() {
+export default function AddUser() {
   const classes = useStyles()
   return (
     <form className={classes.root} noValidate autoComplete="off">

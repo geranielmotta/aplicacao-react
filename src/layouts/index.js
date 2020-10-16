@@ -2,10 +2,9 @@ import React, { Suspense } from 'react'
 import { withRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import GuestLayout from './GuestLayout'
-import {Communication, Loader} from 'components'
+import { Communication, Loader } from 'components'
 
 const CommomLayoutComponents = () => {
-
   const loading = useSelector(state => state.loading)
   return (
     <>
@@ -22,14 +21,7 @@ const CommomLayoutComponents = () => {
  * @returns {function(*): *}
  */
 const withLayout = nextLayout => PagesRouter => {
-  let LayoutComponent
-
-  switch (nextLayout) {
-    default:
-      LayoutComponent = GuestLayout
-      break
-  }
-
+  let LayoutComponent = GuestLayout
   const wrapped = props => (
     <>
       <Suspense fallback={<Loader />}>
