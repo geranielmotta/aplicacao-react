@@ -13,9 +13,10 @@ const BreadcrumbsMain = () => {
   const classes = useStyles()
 
   const breadcrumbNameMap = {
-    '/create-project': 'Cadastro',
-    '/list-project': 'Projetos',
-    '/list-user': 'Usuários',
+    '/create-project': 'Cadastro de projetos',
+    '/create-user': 'Cadastro de usuários',
+    '/list-projects': 'Lista de projetos',
+    '/list-users': 'Lista de usuários',
   }
 
   const LinkRouter = props => <Link {...props} component={RouterLink} />
@@ -25,15 +26,16 @@ const BreadcrumbsMain = () => {
       <Route>
         {({ location }) => {
           const pathnames = location.pathname.split('/').filter(x => x)
+          console.log(pathnames)
           return (
             <Breadcrumbs
               separator={<NavigateNextIcon fontSize="small" />}
               aria-label="breadcrumb"
             >
-              <LinkRouter color="inherit" to="/">
+              <LinkRouter color="inherit" to="/list-projects">
                 Início
               </LinkRouter>
-              {pathnames.length > 1 &&
+              {pathnames.length >= 1 &&
                 map(pathnames, ({ value }, index) => {
                   const last = index === pathnames.length - 1
                   const to = `/${pathnames.slice(0, index + 1).join('/')}`

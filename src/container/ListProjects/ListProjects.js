@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import { Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import navigation from 'store/reducers/router'
+import { history } from 'store/history'
 
 export default function ListProjects() {
   const classes = useStyles()
@@ -21,9 +21,9 @@ export default function ListProjects() {
         variant="contained"
         color="secondary"
         style={{ marginBottom: '10px' }}
-        onClick={() => dispatch(navigation.goCreateProject)}
+        onClick={() => history.push('/create-project')}
       >
-        Cadastrar usuário
+        Cadastrar projeto
       </Button>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">

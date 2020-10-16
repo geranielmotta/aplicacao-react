@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import { Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import navigation from 'store/reducers/router'
+import { history } from 'store/history'
 export default function ListUsers() {
   const classes = useStyles()
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ export default function ListUsers() {
         variant="contained"
         color="secondary"
         style={{ marginBottom: '10px' }}
-        onClick={() => dispatch(navigation.goCreateUser)}
+        onClick={() => history.push('/create-user')}
       >
         Cadastrar usuário
       </Button>
