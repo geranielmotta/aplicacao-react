@@ -13,8 +13,9 @@ import { history } from 'store/history'
 export default function ListUsers() {
   const classes = useStyles()
   const dispatch = useDispatch()
+
   return (
-    <div>
+    <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
       <Button
         variant="contained"
         color="secondary"

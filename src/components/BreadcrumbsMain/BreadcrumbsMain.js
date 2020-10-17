@@ -26,7 +26,6 @@ const BreadcrumbsMain = () => {
       <Route>
         {({ location }) => {
           const pathnames = location.pathname.split('/').filter(x => x)
-          console.log(pathnames)
           return (
             <Breadcrumbs
               separator={<NavigateNextIcon fontSize="small" />}

@@ -31,9 +31,9 @@ export const projectClean = (state = initialState) => ({
 })
 
 export const { Types, Creators } = createActions({
-  getAllProjects: [],
+  getAllProject: [],
   getAllProjectsSuccess: ['data'],
-  addProjects: ['projects'],
+  addProject: ['project'],
   getOneProjects: ['id'],
   setOneProjectSuccess: ['project'],
   editOneProject: ['project'],

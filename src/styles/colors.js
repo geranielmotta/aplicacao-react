@@ -1,6 +1,6 @@
 const colors = () => {
   const primary = '#303030'
-  const secondary = '#c6edb4'
+  const secondary = '#008000'
   const danger = '#db1010'
 
   return {

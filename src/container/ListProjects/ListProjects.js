@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
@@ -8,15 +8,27 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import { Button } from '@material-ui/core'
-import { useDispatch } from 'react-redux'
+import { Button, Icon } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
 import { history } from 'store/history'
+import { Creators as projectActions } from 'store/reducers/projects'
+import moment from 'moment/moment'
+import 'moment/locale/pt-br'
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined'
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 
 export default function ListProjects() {
   const classes = useStyles()
   const dispatch = useDispatch()
+
+  const listProject = useSelector(state => state.projects.listProjects)
+
+  useEffect(() => {
+    dispatch(projectActions.getAllProject())
+  }, [])
+
   return (
-    <div>
+    <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
       <Button
         variant="contained"
         color="secondary"
@@ -30,18 +42,46 @@ export default function ListProjects() {
           <TableHead>
             <TableRow>
               <StyledTableCell>Nome</StyledTableCell>
-              <StyledTableCell align="right">Data</StyledTableCell>
+              <StyledTableCell>Data</StyledTableCell>
+              <StyledTableCell>Opções</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map(row => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
+            {listProject ? (
+              listProject.map((row, index) => (
+                <StyledTableRow key={index}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.name}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    {moment(row.start).format('LLL')}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <EditOutlinedIcon
+                      style={{ marginLeft: '10' }}
+                      onClick={() => console.log('edit')}
+                      id={`edit-${index}`}
+                    />
+                    <DeleteOutlinedIcon
+                      style={{ marginLeft: '10' }}
+                      onClick={() => console.log('delete')}
+                      id={`delete-${index}`}
+                    />
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell
+                  component="th"
+                  scope="row"
+                  colSpan={2}
+                  style={{ textAlign: 'center' }}
+                >
+                  Nenhum projeto cadastrado
                 </StyledTableCell>
-                <StyledTableCell align="right">{row.start}</StyledTableCell>
               </StyledTableRow>
-            ))}
+            )}
           </TableBody>
         </Table>
       </TableContainer>

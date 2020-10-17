@@ -1,10 +1,9 @@
-
 const project = {
-  addPproject: `${process.env.REACT_APP_API_URL}/project`,
-  getAllPprojects: `${process.env.REACT_APP_API_URL}/projects/`,
-  getOnePproject: `${process.env.REACT_APP_API_URL}/project/`,
-  putPproject: `${process.env.REACT_APP_API_URL}/project`,
-  deletePproject: `${process.env.REACT_APP_API_URL}/project`,
+  addProject: `${process.env.REACT_APP_API_URL}/project`,
+  getAllProject: `${process.env.REACT_APP_API_URL}/project`,
+  getOneProject: `${process.env.REACT_APP_API_URL}/project/`,
+  putProject: `${process.env.REACT_APP_API_URL}/project`,
+  deleteProject: `${process.env.REACT_APP_API_URL}/project`,
 }
 
 const user = {

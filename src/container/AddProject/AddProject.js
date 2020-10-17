@@ -1,23 +1,86 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
+import { Button } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
+import { Creators as projectActions } from 'store/reducers/projects'
+import { Input } from 'components'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize'
+import Grid from '@material-ui/core/Grid'
 
 export default function AddProject() {
   const classes = useStyles()
+  const dispatch = useDispatch()
+  const [name, setName] = useState('')
+  const [start, setStart] = useState('')
+  const [description, setDescription] = useState('')
+
+  function submit() {
+    if (name && start && description) {
+      dispatch(
+        projectActions.addProject({
+          name,
+          start,
+          description,
+        })
+      )
+    }
+  }
+
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-    </form>
+    <div className={classes.root}>
+      <Grid container spacing={2}>
+        <Grid item xs>
+          <Input
+            id="name"
+            label="Nome"
+            variant="outlined"
+            value={name}
+            onChange={value => setName(value)}
+          />
+        </Grid>
+        <Grid item xs>
+          <Input
+            type="date"
+            id="start"
+            label="Data inicío"
+            variant="outlined"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={start}
+            onChange={value => setStart(value)}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextareaAutosize
+            rowsMax={20}
+            rowsMin={10}
+            aria-label="description"
+            placeholder="Descrição do projeto"
+            defaultValue={description}
+            onChange={({ target }) => setDescription(target.value)}
+            style={{ width: '100%' }}
+          />
+        </Grid>
+        <Grid item xs>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={() => submit()}
+          >
+            Salvar
+          </Button>
+        </Grid>
+      </Grid>
+    </div>
   )
 }
 
 const useStyles = makeStyles(theme => ({
   root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
+    flex: 1,
+    display: 'flex',
   },
 }))
