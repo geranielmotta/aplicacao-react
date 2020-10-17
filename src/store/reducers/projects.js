@@ -2,7 +2,7 @@ import { createActions, createReducer } from 'reduxsauce'
 
 const initialState = {
   listProjects: [],
-  projects: {},
+  project: {},
 }
 
 export const getAllProjectsSuccess = (state = initialState, { data }) => ({
@@ -10,9 +10,9 @@ export const getAllProjectsSuccess = (state = initialState, { data }) => ({
   listProjects: data,
 })
 
-export const setOneProjectSuccess = (state = initialState, { projects }) => ({
+export const setOneProjectSuccess = (state = initialState, { project }) => ({
   ...state,
-  projects: projects,
+  project: project,
 })
 
 export const editOneProject = (state = initialState, { project }) => {
@@ -34,9 +34,10 @@ export const { Types, Creators } = createActions({
   getAllProject: [],
   getAllProjectsSuccess: ['data'],
   addProject: ['project'],
-  getOneProjects: ['id'],
+  getOneProject: ['id'],
   setOneProjectSuccess: ['project'],
   editOneProject: ['project'],
+  deleteProject: ['project'],
   projectClean: [''],
 })
 

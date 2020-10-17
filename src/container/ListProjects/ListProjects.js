@@ -59,12 +59,16 @@ export default function ListProjects() {
                   <StyledTableCell>
                     <EditOutlinedIcon
                       style={{ marginLeft: '10' }}
-                      onClick={() => console.log('edit')}
+                      onClick={() =>
+                        dispatch(projectActions.getOneProject(row.id))
+                      }
                       id={`edit-${index}`}
                     />
                     <DeleteOutlinedIcon
                       style={{ marginLeft: '10' }}
-                      onClick={() => console.log('delete')}
+                      onClick={() =>
+                        dispatch(projectActions.deleteProject(row))
+                      }
                       id={`delete-${index}`}
                     />
                   </StyledTableCell>
